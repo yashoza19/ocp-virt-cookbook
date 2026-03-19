@@ -1,0 +1,59 @@
+= Test Tutorial for Review Action
+:navtitle: Test Review
+
+This tutorial intentionally contains errors to test the documentation review action.
+
+=== Step 1: This heading skips H2 level
+
+This should trigger an ERROR because we jumped from H1 (=) to H3 (===) without H2 (==).
+
+Here's some text with a bare URL: https://example.com that should be in a link macro.
+
+Also using the term k8s instead of Kubernetes.
+
+== Prerequisites
+
+* Openshift cluster (wrong capitalization)
+* Basic understanding
+
+=== Step 2: Deploy with Invalid YAML
+
+Here's a YAML block with syntax errors:
+
+[source,yaml]
+----
+apiVersion: v1
+kind: Pod
+metadata:
+  name: test-pod
+  labels:
+    app: [unclosed bracket
+spec:
+  containers:
+  - name: test
+    image: nginx
+----
+
+== Step 3: Bash block without role=execute
+
+[source,bash]
+----
+oc get pods
+oc describe pod test-pod
+----
+
+Check the results
+
+Image without alt text: image::test.png[]
+
+== External Links
+
+Check this link:https://docs.openshift.com[Openshift Docs] - missing window=_blank and wrong capitalization.
+
+NOTE: this should be capitalized
+
+== Summary
+
+*This should be bold but using single asterisk*
+
+The tutorial is complete.

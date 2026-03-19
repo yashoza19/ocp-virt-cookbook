@@ -25,6 +25,9 @@ jobs:
       - name: Install dependencies
         run: npm install -g pnpm && pnpm install
 
+      - name: Install Python dependencies
+        run: pip install pyyaml
+
       - name: Get changed files
         id: changed
         run: |

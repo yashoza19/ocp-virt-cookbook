@@ -407,7 +407,6 @@ review_nav_file() {
         fi
     done < "$nav_file"
 
-    TOTAL_ERRORS=$((TOTAL_ERRORS + errors))
     return $errors
 }
 
@@ -421,8 +420,7 @@ validate_yaml_blocks() {
     fi
 
     # Extract YAML blocks and validate
-    local in_yaml_header=false
-    local in_yaml_content=false
+    local in_yaml_block=false
     local yaml_content=""
     local block_start_line=0
     local line_num=0
@@ -432,7 +430,7 @@ validate_yaml_blocks() {
 
         # Detect start of YAML block
         if [[ "$line" =~ ^\[source,yaml ]]; then
-            in_yaml_header=true
+            in_yaml_block=true
             yaml_content=""
             block_start_line=$line_num
             continue
@@ -440,32 +438,32 @@ validate_yaml_blocks() {
 
         # Detect code block delimiter
         if [[ "$line" =~ ^---- ]]; then
-            if [[ "$in_yaml_header" == "true" ]]; then
+            if [[ "$in_yaml_block" == "true" ]]; then
                 # We're entering the YAML content
-                in_yaml_header=false
-                in_yaml_content=true
                 continue
-            elif [[ "$in_yaml_content" == "true" ]]; then
-                # We're exiting the YAML block - validate it
+            else
+                # We're exiting the YAML block
                 if [[ -n "$yaml_content" ]]; then
+                    # Validate the YAML
                     if ! echo "$yaml_content" | python3 -c "import sys, yaml; yaml.safe_load(sys.stdin.read())" 2>/dev/null; then
                         print_error "line $block_start_line: Invalid YAML syntax in code block"
                         errors=$((errors + 1))
                     fi
+                    yaml_content=""
+                    in_yaml_block=false
                 fi
-                yaml_content=""
-                in_yaml_content=false
-                continue
             fi
+            continue
         fi
 
         # Accumulate YAML content
-        if [[ "$in_yaml_content" == "true" ]]; then
+        if [[ "$in_yaml_block" == "true" ]] && [[ "$line" =~ ^---- ]]; then
+            :  # Skip the opening ----
+        elif [[ "$in_yaml_block" == "true" ]]; then
             yaml_content+="$line"$'\n'
         fi
     done < "$file"
 
-    TOTAL_ERRORS=$((TOTAL_ERRORS + errors))
     return $errors
 }
 

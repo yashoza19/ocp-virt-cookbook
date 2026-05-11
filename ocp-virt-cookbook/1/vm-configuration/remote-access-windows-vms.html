@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <title>Accessing Your Windows 11 VM on Red Hat OpenShift via Remote Desktop :: OpenShift Virtualization cookbook</title>
     <link rel="prev" href="remote-access-linux-troubleshooting.html">
-    <link rel="next" href="import-qcow2-boot-volume.html">
+    <link rel="next" href="infrastructure-node-placement.html">
     <meta name="generator" content="Antora 3.1.3">
     <link rel="stylesheet" href="../../../_/css/site.css">
     <script>var uiRootPath = '../../../_'</script>
@@ -37,6 +37,13 @@
   <nav class="nav-menu">
     <h3 class="title"><a href="../index.html">OpenShift Virtualization cookbook</a></h3>
 <ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../index.html">Introduction</a>
+  </li>
+</ul>
+  </li>
   <li class="nav-item" data-depth="0">
 <ul class="nav-list">
   <li class="nav-item" data-depth="1">
@@ -78,7 +85,13 @@
     <a class="nav-link" href="../storage/lvm-troubleshooting.html">LVM Troubleshooting</a>
   </li>
   <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../storage/hostpath-provisioner.html">HostPath Provisioner</a>
+  </li>
+  <li class="nav-item" data-depth="2">
     <a class="nav-link" href="../storage/creating-managing-storage-class.html">Creating and Managing Storage Classes</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../storage/multi-disk-configuration.html">Multi-Disk VMs</a>
   </li>
 </ul>
   </li>
@@ -90,6 +103,12 @@
     <button class="nav-item-toggle"></button>
     <a class="nav-link" href="../networking/index.html">Networking Configuration</a>
 <ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../networking/static-ip-configuration.html">Static IP Configuration</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../networking/cloud-init-troubleshooting.html">Cloud-init Troubleshooting</a>
+  </li>
   <li class="nav-item" data-depth="2">
     <a class="nav-link" href="../networking/udn-primary-networks.html">UDN Primary Networks</a>
   </li>
@@ -109,6 +128,9 @@
     <a class="nav-link" href="../networking/linux-bridges.html">Linux Bridges</a>
   </li>
   <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../networking/vm-ingress-routes.html">VM Ingress and Routes</a>
+  </li>
+  <li class="nav-item" data-depth="2">
     <a class="nav-link" href="../networking/ovs-bridge-troubleshooting.html">Troubleshooting Localnet Networks</a>
   </li>
 </ul>
@@ -122,12 +144,6 @@
     <a class="nav-link" href="index.html">Virtual Machine Configuration</a>
 <ul class="nav-list">
   <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="cloud-init-ip-configuration.html">Cloud-init IP Configuration</a>
-  </li>
-  <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="cloud-init-troubleshooting.html">Cloud-init Troubleshooting</a>
-  </li>
-  <li class="nav-item" data-depth="2">
     <a class="nav-link" href="internal-dns-for-vms.html">Internal DNS for VMs</a>
   </li>
   <li class="nav-item" data-depth="2">
@@ -140,28 +156,66 @@
     <a class="nav-link" href="remote-access-windows-vms.html">Remote Access to Windows VMs via RDP</a>
   </li>
   <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="import-qcow2-boot-volume.html">Import qcow2 Boot Volume</a>
-  </li>
-  <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="custom-golden-images.html">Custom Golden Images</a>
-  </li>
-  <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="golden-images-troubleshooting.html">Golden Images Troubleshooting</a>
-  </li>
-  <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="cloning-vms.html">Cloning VMs</a>
-  </li>
-  <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="vm-snapshots.html">VM Snapshots</a>
-  </li>
-  <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="boot-order-boot-sources.html">VM Boot Order and Boot Sources</a>
-  </li>
-  <li class="nav-item" data-depth="2">
     <a class="nav-link" href="infrastructure-node-placement.html">Infrastructure Node Placement</a>
   </li>
   <li class="nav-item" data-depth="2">
     <a class="nav-link" href="node-placement-affinity.html">Node Placement and Affinity</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="hotplug-volumes-interfaces.html">Hotplug Volumes and Interfaces</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="vm-templates.html">Virtual Machine Templates</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../performance/index.html">VM Performance Tuning</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../performance/resource-limits-qos.html">Resource Limits and QoS</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../performance/cpu-pinning.html">Dedicated CPU Placement</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../performance/numa-hugepages.html">NUMA and Hugepages</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../performance/realtime-vms.html">Real-Time VMs</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../vm-lifecycle/index.html">VM Lifecycle Management</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../vm-lifecycle/import-qcow2-boot-volume.html">Import qcow2 Boot Volume</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../vm-lifecycle/custom-golden-images.html">Custom Golden Images</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../vm-lifecycle/golden-images-troubleshooting.html">Golden Images Troubleshooting</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../vm-lifecycle/cloning-vms.html">Cloning VMs</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../vm-lifecycle/vm-snapshots.html">VM Snapshots</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../vm-lifecycle/boot-order-boot-sources.html">VM Boot Order and Boot Sources</a>
   </li>
 </ul>
   </li>
@@ -181,16 +235,9 @@
     <a class="nav-link" href="../api/index.html">API Guide</a>
 <ul class="nav-list">
   <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="../api/api_component_overview.html">API Component Overview</a>
+    <a class="nav-link" href="../api/api-component-overview.html">API Component Overview</a>
   </li>
 </ul>
-  </li>
-</ul>
-  </li>
-  <li class="nav-item" data-depth="0">
-<ul class="nav-list">
-  <li class="nav-item" data-depth="1">
-    <a class="nav-link" href="../lab-env/index.html">Lab Environment</a>
   </li>
 </ul>
   </li>
@@ -242,7 +289,7 @@
 <article class="doc">
 <h1 class="page">Accessing Your Windows 11 VM on Red Hat OpenShift via Remote Desktop</h1>
 <div class="sect1">
-<h2 id="_summary"><a class="anchor" href="#_summary"></a>Summary</h2>
+<h2 id="_overview"><a class="anchor" href="#_overview"></a>Overview</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>This tutorial guides you through configuring external Remote Desktop Protocol (RDP) access to your Windows 11 virtual machine running on OpenShift. After completing this guide, you will be able to connect directly to your VM using Windows Remote Desktop, providing a more seamless and feature-rich experience than the VNC console.</p>
@@ -471,7 +518,7 @@ spec:
 </li>
 <li>
 <p><strong>Apply Configuration</strong></p>
-<div class="listingblock">
+<div class="listingblock execute">
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">oc apply -f rdp-service.yaml</code></pre>
 </div>
@@ -508,7 +555,7 @@ spec:
 </li>
 <li>
 <p>Get worker node external IP:</p>
-<div class="listingblock">
+<div class="listingblock execute">
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">oc get nodes -o wide</code></pre>
 </div>
@@ -656,7 +703,34 @@ Exposing RDP to the internet creates security risks. Consider using VPN or basti
 </div>
 </div>
 <div class="sect1">
-<h2 id="_additional_resources"><a class="anchor" href="#_additional_resources"></a>Additional Resources</h2>
+<h2 id="_summary"><a class="anchor" href="#_summary"></a>Summary</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>In this tutorial, you learned:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>How to enable Remote Desktop Protocol (RDP) on a Windows 11 VM running in OpenShift Virtualization</p>
+</li>
+<li>
+<p>How to expose the VM&#8217;s RDP port (3389) using either a LoadBalancer or NodePort Service</p>
+</li>
+<li>
+<p>How to obtain the connection details (external IP or node IP with NodePort) for Remote Desktop access</p>
+</li>
+<li>
+<p>How to connect to the Windows VM using the Remote Desktop Connection client</p>
+</li>
+<li>
+<p>Security considerations for exposing RDP access and common troubleshooting steps</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_see_also"><a class="anchor" href="#_see_also"></a>See Also</h2>
 <div class="sectionbody">
 <div class="ulist">
 <ul>
@@ -675,7 +749,7 @@ Exposing RDP to the internet creates security risks. Consider using VPN or basti
 </div>
 <nav class="pagination">
   <span class="prev"><a href="remote-access-linux-troubleshooting.html">Remote Access to Linux VMs Troubleshooting</a></span>
-  <span class="next"><a href="import-qcow2-boot-volume.html">Import qcow2 Boot Volume</a></span>
+  <span class="next"><a href="infrastructure-node-placement.html">Infrastructure Node Placement</a></span>
 </nav>
 </article>
   </div>

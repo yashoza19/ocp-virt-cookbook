@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <title>Troubleshooting LVM Storage Operator :: OpenShift Virtualization cookbook</title>
     <link rel="prev" href="lvm-operator.html">
-    <link rel="next" href="creating-managing-storage-class.html">
+    <link rel="next" href="hostpath-provisioner.html">
     <meta name="generator" content="Antora 3.1.3">
     <link rel="stylesheet" href="../../../_/css/site.css">
     <script>var uiRootPath = '../../../_'</script>
@@ -37,6 +37,13 @@
   <nav class="nav-menu">
     <h3 class="title"><a href="../index.html">OpenShift Virtualization cookbook</a></h3>
 <ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../index.html">Introduction</a>
+  </li>
+</ul>
+  </li>
   <li class="nav-item" data-depth="0">
 <ul class="nav-list">
   <li class="nav-item" data-depth="1">
@@ -78,7 +85,13 @@
     <a class="nav-link" href="lvm-troubleshooting.html">LVM Troubleshooting</a>
   </li>
   <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="hostpath-provisioner.html">HostPath Provisioner</a>
+  </li>
+  <li class="nav-item" data-depth="2">
     <a class="nav-link" href="creating-managing-storage-class.html">Creating and Managing Storage Classes</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="multi-disk-configuration.html">Multi-Disk VMs</a>
   </li>
 </ul>
   </li>
@@ -90,6 +103,12 @@
     <button class="nav-item-toggle"></button>
     <a class="nav-link" href="../networking/index.html">Networking Configuration</a>
 <ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../networking/static-ip-configuration.html">Static IP Configuration</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../networking/cloud-init-troubleshooting.html">Cloud-init Troubleshooting</a>
+  </li>
   <li class="nav-item" data-depth="2">
     <a class="nav-link" href="../networking/udn-primary-networks.html">UDN Primary Networks</a>
   </li>
@@ -109,6 +128,9 @@
     <a class="nav-link" href="../networking/linux-bridges.html">Linux Bridges</a>
   </li>
   <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../networking/vm-ingress-routes.html">VM Ingress and Routes</a>
+  </li>
+  <li class="nav-item" data-depth="2">
     <a class="nav-link" href="../networking/ovs-bridge-troubleshooting.html">Troubleshooting Localnet Networks</a>
   </li>
 </ul>
@@ -122,12 +144,6 @@
     <a class="nav-link" href="../vm-configuration/index.html">Virtual Machine Configuration</a>
 <ul class="nav-list">
   <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="../vm-configuration/cloud-init-ip-configuration.html">Cloud-init IP Configuration</a>
-  </li>
-  <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="../vm-configuration/cloud-init-troubleshooting.html">Cloud-init Troubleshooting</a>
-  </li>
-  <li class="nav-item" data-depth="2">
     <a class="nav-link" href="../vm-configuration/internal-dns-for-vms.html">Internal DNS for VMs</a>
   </li>
   <li class="nav-item" data-depth="2">
@@ -140,28 +156,66 @@
     <a class="nav-link" href="../vm-configuration/remote-access-windows-vms.html">Remote Access to Windows VMs via RDP</a>
   </li>
   <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="../vm-configuration/import-qcow2-boot-volume.html">Import qcow2 Boot Volume</a>
-  </li>
-  <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="../vm-configuration/custom-golden-images.html">Custom Golden Images</a>
-  </li>
-  <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="../vm-configuration/golden-images-troubleshooting.html">Golden Images Troubleshooting</a>
-  </li>
-  <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="../vm-configuration/cloning-vms.html">Cloning VMs</a>
-  </li>
-  <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="../vm-configuration/vm-snapshots.html">VM Snapshots</a>
-  </li>
-  <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="../vm-configuration/boot-order-boot-sources.html">VM Boot Order and Boot Sources</a>
-  </li>
-  <li class="nav-item" data-depth="2">
     <a class="nav-link" href="../vm-configuration/infrastructure-node-placement.html">Infrastructure Node Placement</a>
   </li>
   <li class="nav-item" data-depth="2">
     <a class="nav-link" href="../vm-configuration/node-placement-affinity.html">Node Placement and Affinity</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../vm-configuration/hotplug-volumes-interfaces.html">Hotplug Volumes and Interfaces</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../vm-configuration/vm-templates.html">Virtual Machine Templates</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../performance/index.html">VM Performance Tuning</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../performance/resource-limits-qos.html">Resource Limits and QoS</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../performance/cpu-pinning.html">Dedicated CPU Placement</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../performance/numa-hugepages.html">NUMA and Hugepages</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../performance/realtime-vms.html">Real-Time VMs</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../vm-lifecycle/index.html">VM Lifecycle Management</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../vm-lifecycle/import-qcow2-boot-volume.html">Import qcow2 Boot Volume</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../vm-lifecycle/custom-golden-images.html">Custom Golden Images</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../vm-lifecycle/golden-images-troubleshooting.html">Golden Images Troubleshooting</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../vm-lifecycle/cloning-vms.html">Cloning VMs</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../vm-lifecycle/vm-snapshots.html">VM Snapshots</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../vm-lifecycle/boot-order-boot-sources.html">VM Boot Order and Boot Sources</a>
   </li>
 </ul>
   </li>
@@ -181,16 +235,9 @@
     <a class="nav-link" href="../api/index.html">API Guide</a>
 <ul class="nav-list">
   <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="../api/api_component_overview.html">API Component Overview</a>
+    <a class="nav-link" href="../api/api-component-overview.html">API Component Overview</a>
   </li>
 </ul>
-  </li>
-</ul>
-  </li>
-  <li class="nav-item" data-depth="0">
-<ul class="nav-list">
-  <li class="nav-item" data-depth="1">
-    <a class="nav-link" href="../lab-env/index.html">Lab Environment</a>
   </li>
 </ul>
   </li>
@@ -1337,7 +1384,7 @@ oc get storageclass lvms-vg1 -o yaml | grep is-default-class</code></pre>
 <div class="paragraph">
 <p>Save this as a shell script to quickly diagnose LVM storage issues:</p>
 </div>
-<div class="listingblock">
+<div class="listingblock execute">
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">#!/bin/bash
 
@@ -1389,7 +1436,34 @@ echo "=== End of Diagnostic Report ==="</code></pre>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_related_guides"><a class="anchor" href="#_related_guides"></a>Related Guides</h2>
+<h2 id="_summary"><a class="anchor" href="#_summary"></a>Summary</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>In this guide, you learned:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>How to run a quick health check to verify LVMCluster, pods, StorageClass, volume groups, and thin pools</p>
+</li>
+<li>
+<p>How to diagnose common issues including LVMCluster NotReady, missing volume groups, and PVCs stuck in Pending</p>
+</li>
+<li>
+<p>How to verify volume group, thin pool, and physical volume status using <code>vgs</code>, <code>lvs</code>, and <code>pvs</code> commands</p>
+</li>
+<li>
+<p>How to troubleshoot device wipe failures, vg-manager CrashLoopBackOff, and StorageClass default configuration</p>
+</li>
+<li>
+<p>How to use the diagnostic script to quickly gather LVM storage health information</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_see_also"><a class="anchor" href="#_see_also"></a>See Also</h2>
 <div class="sectionbody">
 <div class="ulist">
 <ul>
@@ -1402,7 +1476,7 @@ echo "=== End of Diagnostic Report ==="</code></pre>
 </div>
 <nav class="pagination">
   <span class="prev"><a href="lvm-operator.html">LVM Operator Installation</a></span>
-  <span class="next"><a href="creating-managing-storage-class.html">Creating and Managing Storage Classes</a></span>
+  <span class="next"><a href="hostpath-provisioner.html">HostPath Provisioner</a></span>
 </nav>
 </article>
   </div>

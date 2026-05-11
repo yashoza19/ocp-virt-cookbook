@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <title>Configuring Layer 2 Primary Networks with UDNs :: OpenShift Virtualization cookbook</title>
-    <link rel="prev" href="index.html">
+    <link rel="prev" href="cloud-init-troubleshooting.html">
     <link rel="next" href="localnet-secondary.html">
     <meta name="generator" content="Antora 3.1.3">
     <link rel="stylesheet" href="../../../_/css/site.css">
@@ -37,6 +37,13 @@
   <nav class="nav-menu">
     <h3 class="title"><a href="../index.html">OpenShift Virtualization cookbook</a></h3>
 <ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../index.html">Introduction</a>
+  </li>
+</ul>
+  </li>
   <li class="nav-item" data-depth="0">
 <ul class="nav-list">
   <li class="nav-item" data-depth="1">
@@ -78,7 +85,13 @@
     <a class="nav-link" href="../storage/lvm-troubleshooting.html">LVM Troubleshooting</a>
   </li>
   <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../storage/hostpath-provisioner.html">HostPath Provisioner</a>
+  </li>
+  <li class="nav-item" data-depth="2">
     <a class="nav-link" href="../storage/creating-managing-storage-class.html">Creating and Managing Storage Classes</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../storage/multi-disk-configuration.html">Multi-Disk VMs</a>
   </li>
 </ul>
   </li>
@@ -90,6 +103,12 @@
     <button class="nav-item-toggle"></button>
     <a class="nav-link" href="index.html">Networking Configuration</a>
 <ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="static-ip-configuration.html">Static IP Configuration</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="cloud-init-troubleshooting.html">Cloud-init Troubleshooting</a>
+  </li>
   <li class="nav-item is-current-page" data-depth="2">
     <a class="nav-link" href="udn-primary-networks.html">UDN Primary Networks</a>
   </li>
@@ -109,6 +128,9 @@
     <a class="nav-link" href="linux-bridges.html">Linux Bridges</a>
   </li>
   <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="vm-ingress-routes.html">VM Ingress and Routes</a>
+  </li>
+  <li class="nav-item" data-depth="2">
     <a class="nav-link" href="ovs-bridge-troubleshooting.html">Troubleshooting Localnet Networks</a>
   </li>
 </ul>
@@ -122,12 +144,6 @@
     <a class="nav-link" href="../vm-configuration/index.html">Virtual Machine Configuration</a>
 <ul class="nav-list">
   <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="../vm-configuration/cloud-init-ip-configuration.html">Cloud-init IP Configuration</a>
-  </li>
-  <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="../vm-configuration/cloud-init-troubleshooting.html">Cloud-init Troubleshooting</a>
-  </li>
-  <li class="nav-item" data-depth="2">
     <a class="nav-link" href="../vm-configuration/internal-dns-for-vms.html">Internal DNS for VMs</a>
   </li>
   <li class="nav-item" data-depth="2">
@@ -140,28 +156,66 @@
     <a class="nav-link" href="../vm-configuration/remote-access-windows-vms.html">Remote Access to Windows VMs via RDP</a>
   </li>
   <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="../vm-configuration/import-qcow2-boot-volume.html">Import qcow2 Boot Volume</a>
-  </li>
-  <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="../vm-configuration/custom-golden-images.html">Custom Golden Images</a>
-  </li>
-  <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="../vm-configuration/golden-images-troubleshooting.html">Golden Images Troubleshooting</a>
-  </li>
-  <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="../vm-configuration/cloning-vms.html">Cloning VMs</a>
-  </li>
-  <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="../vm-configuration/vm-snapshots.html">VM Snapshots</a>
-  </li>
-  <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="../vm-configuration/boot-order-boot-sources.html">VM Boot Order and Boot Sources</a>
-  </li>
-  <li class="nav-item" data-depth="2">
     <a class="nav-link" href="../vm-configuration/infrastructure-node-placement.html">Infrastructure Node Placement</a>
   </li>
   <li class="nav-item" data-depth="2">
     <a class="nav-link" href="../vm-configuration/node-placement-affinity.html">Node Placement and Affinity</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../vm-configuration/hotplug-volumes-interfaces.html">Hotplug Volumes and Interfaces</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../vm-configuration/vm-templates.html">Virtual Machine Templates</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../performance/index.html">VM Performance Tuning</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../performance/resource-limits-qos.html">Resource Limits and QoS</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../performance/cpu-pinning.html">Dedicated CPU Placement</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../performance/numa-hugepages.html">NUMA and Hugepages</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../performance/realtime-vms.html">Real-Time VMs</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../vm-lifecycle/index.html">VM Lifecycle Management</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../vm-lifecycle/import-qcow2-boot-volume.html">Import qcow2 Boot Volume</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../vm-lifecycle/custom-golden-images.html">Custom Golden Images</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../vm-lifecycle/golden-images-troubleshooting.html">Golden Images Troubleshooting</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../vm-lifecycle/cloning-vms.html">Cloning VMs</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../vm-lifecycle/vm-snapshots.html">VM Snapshots</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../vm-lifecycle/boot-order-boot-sources.html">VM Boot Order and Boot Sources</a>
   </li>
 </ul>
   </li>
@@ -181,16 +235,9 @@
     <a class="nav-link" href="../api/index.html">API Guide</a>
 <ul class="nav-list">
   <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="../api/api_component_overview.html">API Component Overview</a>
+    <a class="nav-link" href="../api/api-component-overview.html">API Component Overview</a>
   </li>
 </ul>
-  </li>
-</ul>
-  </li>
-  <li class="nav-item" data-depth="0">
-<ul class="nav-list">
-  <li class="nav-item" data-depth="1">
-    <a class="nav-link" href="../lab-env/index.html">Lab Environment</a>
   </li>
 </ul>
   </li>
@@ -252,8 +299,29 @@
 </div>
 <div class="listingblock">
 <div class="content">
-<pre>OpenShift 4.19,4.20</pre>
+<pre>OpenShift 4.19, 4.20, 4.21</pre>
 </div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_prerequisites"><a class="anchor" href="#_prerequisites"></a>Prerequisites</h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p>OpenShift 4.19+ cluster with OpenShift Virtualization operator installed</p>
+</li>
+<li>
+<p>OVN-Kubernetes network plugin (default in OpenShift)</p>
+</li>
+<li>
+<p>Cluster admin access for creating namespaces and UserDefinedNetwork resources</p>
+</li>
+<li>
+<p>CLI tools installed: <code>oc</code>, <code>virtctl</code></p>
+</li>
+</ul>
 </div>
 </div>
 </div>
@@ -276,11 +344,11 @@ The namespace must be created and labeled before any workload deployment happens
 </table>
 </div>
 <div class="paragraph">
-<p><a href="_attachments/udn-primary-namespace.yaml" class="xref attachment">Download udn-primary-namespace.yaml</a></p>
+<p><a href="_attachments/udn-primary-networks/udn-primary-namespace.yaml" class="xref attachment">Download udn-primary-namespace.yaml</a></p>
 </div>
-<div class="listingblock">
+<div class="listingblock execute">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-yaml hljs" data-lang="yaml">oc apply -f - &lt;&lt;EOF
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">oc apply -f - &lt;&lt;EOF
 apiVersion: v1
 kind: Namespace
 metadata:
@@ -299,11 +367,11 @@ EOF</code></pre>
 <p>Define the primary UDN with Layer2 topology and custom subnet configuration. This resource specifies the network characteristics including IP range, IPAM lifecycle, and primary role designation to override default cluster networking for pods in the namespace.</p>
 </div>
 <div class="paragraph">
-<p><a href="_attachments/udn-primary.yaml" class="xref attachment">Download udn-primary.yaml</a></p>
+<p><a href="_attachments/udn-primary-networks/udn-primary.yaml" class="xref attachment">Download udn-primary.yaml</a></p>
 </div>
-<div class="listingblock">
+<div class="listingblock execute">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-yaml hljs" data-lang="yaml">oc apply -f - &lt;&lt;EOF
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">oc apply -f - &lt;&lt;EOF
 apiVersion: k8s.ovn.org/v1
 kind: UserDefinedNetwork
 metadata:
@@ -328,12 +396,24 @@ EOF</code></pre>
 <div class="paragraph">
 <p>Create a virtual machine that utilizes the primary UDN configuration and runs a simple Python HTTP server for testing connectivity. The workload automatically receives an IP address from the 192.168.100.0/24 subnet via the UDN&#8217;s IPAM and uses the UDN as its primary network interface.</p>
 </div>
-<div class="paragraph">
-<p><a href="_attachments/fedora-vm-with-udn.yaml" class="xref attachment">Download fedora-vm-with-udn.yaml</a></p>
+<div class="admonitionblock warning">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-warning" title="Warning"></i>
+</td>
+<td class="content">
+The cloud-init password in this example is for demo purposes only. Always use a strong, unique password or SSH key authentication in production environments.
+</td>
+</tr>
+</table>
 </div>
-<div class="listingblock">
+<div class="paragraph">
+<p><a href="_attachments/udn-primary-networks/fedora-vm-with-udn.yaml" class="xref attachment">Download fedora-vm-with-udn.yaml</a></p>
+</div>
+<div class="listingblock execute">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-yaml hljs" data-lang="yaml">oc apply -f - &lt;&lt;EOF
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">oc apply -f - &lt;&lt;EOF
 apiVersion: kubevirt.io/v1
 kind: VirtualMachine
 metadata:
@@ -343,7 +423,7 @@ metadata:
     app: fedora-web-vm
     network-type: udn-primary
 spec:
-  running: true
+  runStrategy: Always
   dataVolumeTemplates:
   - metadata:
       name: fedora-udn-volume
@@ -429,11 +509,11 @@ Cloud services like AWS automatically deploy a load balancer for this configurat
 </table>
 </div>
 <div class="paragraph">
-<p><a href="_attachments/fedora-vm-web-service.yaml" class="xref attachment">Download fedora-vm-web-service.yaml</a></p>
+<p><a href="_attachments/udn-primary-networks/fedora-vm-web-service.yaml" class="xref attachment">Download fedora-vm-web-service.yaml</a></p>
 </div>
-<div class="listingblock">
+<div class="listingblock execute">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-yaml hljs" data-lang="yaml">oc apply -f - &lt;&lt;EOF
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">oc apply -f - &lt;&lt;EOF
 apiVersion: v1
 kind: Service
 metadata:
@@ -494,10 +574,35 @@ fedora-vm-web-service   LoadBalancer   172.30.72.140   aa32981df19ad4959ae9a82fb
 </div>
 </div>
 <div class="sect1">
-<h2 id="_references"><a class="anchor" href="#_references"></a>References</h2>
+<h2 id="_summary"><a class="anchor" href="#_summary"></a>Summary</h2>
 <div class="sectionbody">
-<div class="sect2">
-<h3 id="_openshift_documentation"><a class="anchor" href="#_openshift_documentation"></a>OpenShift Documentation</h3>
+<div class="paragraph">
+<p>In this tutorial, you learned:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>How to create a UDN-enabled namespace with the <code>k8s.ovn.org/primary-user-defined-network</code> label</p>
+</li>
+<li>
+<p>How to define a <code>UserDefinedNetwork</code> resource with Layer2 topology and custom subnet configuration</p>
+</li>
+<li>
+<p>How to deploy a VM that uses the UDN as its primary network with persistent IPAM</p>
+</li>
+<li>
+<p>How to expose a VM running on a UDN primary network via a LoadBalancer Service</p>
+</li>
+<li>
+<p>How UDN primary networks provide complete network isolation with custom IP addressing</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_see_also"><a class="anchor" href="#_see_also"></a>See Also</h2>
+<div class="sectionbody">
 <div class="ulist">
 <ul>
 <li>
@@ -510,9 +615,8 @@ fedora-vm-web-service   LoadBalancer   172.30.72.140   aa32981df19ad4959ae9a82fb
 </div>
 </div>
 </div>
-</div>
 <nav class="pagination">
-  <span class="prev"><a href="index.html">Networking Configuration</a></span>
+  <span class="prev"><a href="cloud-init-troubleshooting.html">Cloud-init Troubleshooting</a></span>
   <span class="next"><a href="localnet-secondary.html">Localnet Secondary Networks with CUDN</a></span>
 </nav>
 </article>
